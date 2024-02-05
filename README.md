@@ -2,26 +2,41 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
 
-## Development server
+# Angular Starter Project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This repository serves as an initial setup for diving into the Angular framework. Whether you're new to Angular or looking for a clean starting point, this project provides a structured foundation for your development journey.
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. **Clone the Repository**
 
-## Build
+2. **Navigate to the Project Directory**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Running unit tests
+4. **Run the Development Server:**
+   ```bash
+   ng serve
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   Navigate to `http://localhost:4200/` to view the Angular application.
 
-## Running end-to-end tests
+## Project Structure
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Explore the project structure to understand how Angular organizes components, modules, and other essential elements. Refer to the [Wiki Section](../../wiki) for detailed explanations and theoretical insights on various Angular concepts.
 
-## Further help
+## Wiki
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Visit the [Wiki Section](../../wiki) for in-depth theoretical explanations, guides, and best practices related to Angular development. Whether you're interested in components, modules, services, or Angular CLI commands, the Wiki provides comprehensive information to enhance your understanding.
+
+## Contributing
+
+Feel free to contribute to the project by submitting issues, suggesting improvements, or adding to the Wiki content. Your contributions are valuable in creating a collaborative learning environment for the Angular community.
+
+## References
+Inspired by https://www.youtube.com/@GetArrays
+
+Happy coding with Angular! 🚀
