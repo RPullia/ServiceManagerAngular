@@ -8,12 +8,18 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 export class ProvaComponent implements OnInit, DoCheck, AfterContentInit, AfterContentChecked,
 AfterViewInit, AfterViewChecked,  OnDestroy {
 
+
+  // Values used for string interpolation
   longText = "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan."
+  
   shibaImages = [
     {imageUrl: "https://material.angular.io/assets/img/examples/shiba1.jpg"},
     {imageUrl: "https://material.angular.io/assets/img/examples/shiba2.jpg"}
   ]
- 
+
+
+  // Variable used for property binding
+  isDisabled = false
 
   constructor(){
     console.log("Costruttore")
