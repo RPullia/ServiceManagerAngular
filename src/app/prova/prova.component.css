@@ -1,5 +1,4 @@
 .example-card {
-  width: 300px;
   margin: 0 auto; /* Centra l'elemento orizzontalmente */
 }
 
@@ -18,3 +17,22 @@
 .example-full-width {
   width: 100%;
 }
+
+.notVisible {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Altezza del 100% della viewport */
+}
+
+.notVisible p {
+  color: red;
+  font-size: inherit; /* Utilizza la dimensione del carattere ereditata */
+}
+
+.notVisible img {
+  max-width: 100%;
+  max-height: 80vh; /* Altezza massima dell'80% della viewport */
+}
+

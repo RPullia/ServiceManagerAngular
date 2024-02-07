@@ -17,6 +17,7 @@ AfterViewInit, AfterViewChecked,  OnDestroy {
     {name: "TheDog", username: "shibaTheDog", imageUrl: "https://as2.ftcdn.net/v2/jpg/03/12/93/33/1000_F_312933371_vMqXBtR0s84b7WHGbUWpgIzVmhrgp8za.jpg"}
   ]
 
+  notVisibleImageUrl = "https://cdn.pixabay.com/photo/2017/02/12/21/29/false-2061131_1280.png"
 
   // Variable used for property binding
   isDisabled = false

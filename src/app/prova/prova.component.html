@@ -1,17 +1,22 @@
 <!-- Used string interpolation data binding on  src={{shibaImages[0].imageUrl}} or {{ longText }}-->
 <!-- Used property binding on button's disable property-->
 <!-- Used event binding on favorite button's click property-->
-<!-- Used Two way binding on secondo form input-->
-<!-- Used *ngIf directive on second card-->
+<!-- Used Two way binding on form input-->
+<!-- Used *ngIf directive on card-->
+<!-- Used *ngFor directive to iterate on shibaImages array-->
+<!-- Used ngStyle directive on mat-card class="example-card"-->
 <div class="card-container">
   <div class="card" *ngFor="let image of shibaImages">
     <p *ngIf="!isVisible; then bloccoIf else bloccoElse"></p>
     <ng-template #bloccoIf>
-      <p>Card not visible</p>
+      <div class="notVisible">
+        <p>Card not visible</p>
+        <img src={{notVisibleImageUrl}}>
+      </div>
     </ng-template>
     
     <ng-template #bloccoElse>
-      <mat-card class="example-card">
+      <mat-card class="example-card" [ngStyle]="{'width': '300px'}">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title>{{image.name}}</mat-card-title>
