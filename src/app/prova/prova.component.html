@@ -1,5 +1,6 @@
 <!-- Used string interpolation data binding on  src={{shibaImages[0].imageUrl}} or {{ longText }}-->
 <!-- Used property binding on button's disable property-->
+<!-- Used property binding on favorite button's click property-->
 
 <mat-card class="example-card">
     <mat-card-header>
@@ -12,13 +13,19 @@
       <p>{{ longText }}</p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-icon-button [disabled]="isDisabled" matTooltip="Warn" color="warn" aria-label="Example icon-button with a heart icon">
+        <button mat-icon-button (click)="onClick()" [disabled]="isDisabled" matTooltip="Warn" color="warn" aria-label="Example icon-button with a heart icon">
             <mat-icon>favorite</mat-icon>
           </button>
           <button mat-icon-button [disabled]="isDisabled" aria-label="Example icon button with a open in new tab icon">
             <mat-icon>send</mat-icon>
           </button>
     </mat-card-actions>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Leave a comment</mat-label>
+        <textarea matInput (input)="onInput($event)" placeholder="Ex. It makes me feel..."></textarea>
+      </mat-form-field>
+    </form>
 </mat-card>
 <mat-card class="example-card">
     <mat-card-header>
@@ -31,12 +38,18 @@
       <p>{{ longText }}</p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-icon-button [disabled]="isDisabled" matTooltip="Warn" color="warn" aria-label="Example icon-button with a heart icon">
+        <button mat-icon-button (click)="onClick()" [disabled]="isDisabled" matTooltip="Warn" color="warn" aria-label="Example icon-button with a heart icon">
             <mat-icon>favorite</mat-icon>
           </button>
           <button mat-icon-button [disabled]="isDisabled" aria-label="Example icon button with a open in new tab icon">
             <mat-icon>send</mat-icon>
           </button>
     </mat-card-actions>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Leave a comment</mat-label>
+        <textarea matInput (input)="onInput($event)" placeholder="Ex. It makes me feel..."></textarea>
+      </mat-form-field>
+    </form>
 </mat-card>
   

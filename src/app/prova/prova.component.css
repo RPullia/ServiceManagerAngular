@@ -1,9 +1,20 @@
 .example-card {
-    width: 300px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
-  
+  width: 300px;
+  margin: 0 auto; /* Centra l'elemento orizzontalmente */
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto; /* Centra l'elemento orizzontalmente */
+}
+
+.example-full-width {
+  width: 100%;
+}

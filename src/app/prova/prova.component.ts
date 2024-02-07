@@ -8,7 +8,6 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 export class ProvaComponent implements OnInit, DoCheck, AfterContentInit, AfterContentChecked,
 AfterViewInit, AfterViewChecked,  OnDestroy {
 
-
   // Values used for string interpolation
   longText = "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan."
   
@@ -51,5 +50,14 @@ AfterViewInit, AfterViewChecked,  OnDestroy {
 
   ngOnDestroy(): void {
     console.log("ngOnDestroy")
+  }
+
+  onClick() {
+    console.log("Like!")
+  }
+
+  onInput(event: Event) {
+    console.log((<HTMLInputElement>event.target).value); // This will log the value entered in the textarea
+    // Add any other logic you want to execute when the input event occurs
   }
 }
