@@ -20,6 +20,8 @@ AfterViewInit, AfterViewChecked,  OnDestroy {
   // Variable used for property binding
   isDisabled = false
 
+  comment = 'This is a comment'
+
   constructor(){
     console.log("Costruttore")
   }
@@ -54,10 +56,12 @@ AfterViewInit, AfterViewChecked,  OnDestroy {
 
   onClick() {
     console.log("Like!")
+    this.comment = "Like!"
   }
 
   onInput(event: Event) {
-    console.log((<HTMLInputElement>event.target).value); // This will log the value entered in the textarea
+     //log the value entered in the textarea, <HTMLInputElement> casting.
+    console.log((<HTMLInputElement>event.target).value);
     // Add any other logic you want to execute when the input event occurs
   }
 }
