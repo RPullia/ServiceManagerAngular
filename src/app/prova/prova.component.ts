@@ -20,6 +20,9 @@ AfterViewInit, AfterViewChecked,  OnDestroy {
   // Variable used for property binding
   isDisabled = false
 
+  // Variable used for explaining *ngIf directive
+  isVisible = false
+
   comment = 'This is a comment'
 
   constructor(){
