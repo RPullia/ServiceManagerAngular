@@ -3,59 +3,42 @@
 <!-- Used event binding on favorite button's click property-->
 <!-- Used Two way binding on secondo form input-->
 <!-- Used *ngIf directive on second card-->
-<mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src={{shibaImages[0].imageUrl}} alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>{{ longText }}</p>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-icon-button (click)="onClick()" [disabled]="isDisabled" matTooltip="Warn" color="warn" aria-label="Example icon-button with a heart icon">
-            <mat-icon>favorite</mat-icon>
-          </button>
-          <button mat-icon-button [disabled]="isDisabled" aria-label="Example icon button with a open in new tab icon">
-            <mat-icon>send</mat-icon>
-          </button>
-    </mat-card-actions>
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Leave a comment</mat-label>
-        <input matInput (input)="onInput($event)" placeholder="Ex. It makes me feel..."/>
-      </mat-form-field>
-    </form>
-</mat-card>
-<p *ngIf="!isVisible; else bloccoElse">Card not visible</p>
-<ng-template #bloccoElse>
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src={{shibaImages[1].imageUrl}} alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>{{ longText }}</p>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-icon-button (click)="onClick()" [disabled]="isDisabled" matTooltip="Warn" color="warn" aria-label="Example icon-button with a heart icon">
-            <mat-icon>favorite</mat-icon>
-          </button>
-          <button mat-icon-button [disabled]="isDisabled" aria-label="Example icon button with a open in new tab icon">
-            <mat-icon>send</mat-icon>
-          </button>
-    </mat-card-actions>
-    <p>{{comment}}</p>
-    <form class="example-form">
-      <mat-form-field class="example-full-width" >
-        <mat-label>Leave a comment</mat-label>
-        <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="comment" name = "comment"/>
-      </mat-form-field>
-    </form>
-</mat-card>
-</ng-template>
+<div class="card-container">
+  <div class="card" *ngFor="let image of shibaImages">
+    <p *ngIf="!isVisible; then bloccoIf else bloccoElse"></p>
+    <ng-template #bloccoIf>
+      <p>Card not visible</p>
+    </ng-template>
+    
+    <ng-template #bloccoElse>
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{image.name}}</mat-card-title>
+          <mat-card-subtitle>{{image.username}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src={{image.imageUrl}} alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>{{ longText }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-icon-button (click)="onClick()" [disabled]="isDisabled" matTooltip="Warn" color="warn" aria-label="Example icon-button with a heart icon">
+                <mat-icon>favorite</mat-icon>
+              </button>
+              <button mat-icon-button [disabled]="isDisabled" aria-label="Example icon button with a open in new tab icon">
+                <mat-icon>send</mat-icon>
+              </button>
+        </mat-card-actions>
+        <p>{{comment}}</p>
+        <form class="example-form">
+          <mat-form-field class="example-full-width" >
+            <mat-label>Leave a comment</mat-label>
+            <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="comment" name = "comment"/>
+          </mat-form-field>
+        </form>
+      </mat-card>
+    </ng-template>
+  </div>
+</div>
 
   
