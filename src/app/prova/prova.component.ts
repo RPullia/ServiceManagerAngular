@@ -1,4 +1,5 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import EventEmitter from 'events';
 
 @Component({
   selector: 'app-prova',
@@ -10,12 +11,6 @@ AfterViewInit, AfterViewChecked,  OnDestroy {
 
   // Values used for string interpolation
   longText = "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan."
-  
-  shibaImages = [
-    {name: "Shiba", username: "shibaOne", imageUrl: "https://material.angular.io/assets/img/examples/shiba1.jpg"},
-    {name: "Doggo", username: "shibaDoggo", imageUrl: "https://material.angular.io/assets/img/examples/shiba2.jpg"},
-    {name: "TheDog", username: "shibaTheDog", imageUrl: "https://as2.ftcdn.net/v2/jpg/03/12/93/33/1000_F_312933371_vMqXBtR0s84b7WHGbUWpgIzVmhrgp8za.jpg"}
-  ]
 
   notVisibleImageUrl = "https://cdn.pixabay.com/photo/2017/02/12/21/29/false-2061131_1280.png"
 
@@ -25,7 +20,13 @@ AfterViewInit, AfterViewChecked,  OnDestroy {
   // Variable used for explaining *ngIf directive
   isVisible = true
 
-  comment = 'This is a comment'
+  comments: { [index: number]: string } = {}; // Oggetto per memorizzare i commenti per ogni card
+
+  feedLog = 'Feed'
+
+  // Used to import data from other component
+  @Input() data: any;
+
 
   constructor(){
     console.log("Costruttore")
@@ -59,9 +60,9 @@ AfterViewInit, AfterViewChecked,  OnDestroy {
     console.log("ngOnDestroy")
   }
 
-  onClick() {
+  onClick(index: number) {
     console.log("Like!")
-    this.comment = "Like!"
+    this.comments[index] = "Like!"
   }
 
   onInput(event: Event) {
@@ -69,4 +70,5 @@ AfterViewInit, AfterViewChecked,  OnDestroy {
     console.log((<HTMLInputElement>event.target).value);
     // Add any other logic you want to execute when the input event occurs
   }
+
 }

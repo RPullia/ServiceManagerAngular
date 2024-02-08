@@ -1,12 +1,6 @@
-<!-- Used string interpolation data binding on  src={{shibaImages[0].imageUrl}} or {{ longText }}-->
-<!-- Used property binding on button's disable property-->
-<!-- Used event binding on favorite button's click property-->
-<!-- Used Two way binding on form input-->
-<!-- Used *ngIf directive on card-->
-<!-- Used *ngFor directive to iterate on shibaImages array-->
-<!-- Used ngStyle directive on mat-card class="example-card"-->
+<!-- Template HTML -->
 <div class="card-container">
-  <div class="card" *ngFor="let image of shibaImages">
+  <div class="card" *ngFor="let image of data; let i = index">
     <p *ngIf="!isVisible; then bloccoIf else bloccoElse"></p>
     <ng-template #bloccoIf>
       <div class="notVisible">
@@ -27,23 +21,21 @@
           <p>{{ longText }}</p>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-icon-button (click)="onClick()" [disabled]="isDisabled" matTooltip="Warn" color="warn" aria-label="Example icon-button with a heart icon">
+            <button mat-icon-button (click)="onClick(i)" [disabled]="isDisabled" matTooltip="Warn" color="warn" aria-label="Example icon-button with a heart icon">
                 <mat-icon>favorite</mat-icon>
               </button>
               <button mat-icon-button [disabled]="isDisabled" aria-label="Example icon button with a open in new tab icon">
                 <mat-icon>send</mat-icon>
               </button>
         </mat-card-actions>
-        <p>{{comment}}</p>
+        <p>{{comments[i]}}</p>
         <form class="example-form">
           <mat-form-field class="example-full-width" >
             <mat-label>Leave a comment</mat-label>
-            <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="comment" name = "comment"/>
+            <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="comments[i]" name="comment{{i}}"/>
           </mat-form-field>
         </form>
       </mat-card>
     </ng-template>
   </div>
 </div>
-
-  
