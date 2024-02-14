@@ -1,17 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable, catchError, map, of, startWith } from 'rxjs';
+import { AppState } from './interface/app-state';
+import { CustomResponse } from './interface/custom-response';
+import { ApplicationService } from './services/application.service';
+import { DataState } from './enum/data-state.enum';
+import { error } from 'console';
 
 @Component({
   selector: 'app-root', 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'ServiceManagerAngular';
+export class AppComponent implements OnInit {
+  appState$: Observable<AppState<CustomResponse>>;
 
-  shibaDogs = [
-    {name: "Shiba", username: "shibaOne", imageUrl: "https://material.angular.io/assets/img/examples/shiba1.jpg"},
-    {name: "Doggo", username: "shibaDoggo", imageUrl: "https://material.angular.io/assets/img/examples/shiba2.jpg"},
-    {name: "TheDog", username: "shibaTheDog", imageUrl: "https://as2.ftcdn.net/v2/jpg/03/12/93/33/1000_F_312933371_vMqXBtR0s84b7WHGbUWpgIzVmhrgp8za.jpg"}
-  ]
+  constructor(private applicationService: ApplicationService){}
 
+  ngOnInit(): void {
+    this.appState$ = this.applicationService.applicationsList$
+    .pipe(
+      map(response => {
+        return { dataState: DataState.LOADED, appData: response }
+      }),
+      startWith({dataState: DataState.LOADING}),
+      catchError((error: string) => {
+        return of({dataState: DataState.ERROR, error})
+      })
+    );
+  }
 }

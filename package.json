@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "generate-component": "ng g c",
+    "generate-service": "ng g s",
     "material": "ng add @angular/material",
     "serve:ssr:ServiceManagerAngular": "node dist/service-manager-angular/server/server.mjs"
   },

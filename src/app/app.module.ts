@@ -12,12 +12,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { ProvaComponent } from './prova/prova.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProvaComponent
   ],
   imports: [
     BrowserModule,
